@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Bowlgame
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %header
+      %ul.menu
+        = render 'shared/registration_items'
+        = render 'shared/login_items'
+    %page
+      .notice
+        = notice
+      .alert
+        = alert
+      = yield
+    %footer

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  short_name: MyString
+  nick_name: MyString
+  school_name: MyString
+  conference_id: 1
+  espn_id: 1
+
+two:
+  name: MyString
+  short_name: MyString
+  nick_name: MyString
+  school_name: MyString
+  conference_id: 1
+  espn_id: 1

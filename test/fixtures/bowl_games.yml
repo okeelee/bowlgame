@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  city: MyString
+  state: MyString
+  game_time: 
+  network: MyString
+  pickem_id: 1
+
+two:
+  name: MyString
+  city: MyString
+  state: MyString
+  game_time: 
+  network: MyString
+  pickem_id: 1
