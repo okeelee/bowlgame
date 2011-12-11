@@ -5,7 +5,12 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem "mysql2", ">=0.3"
+end
 
 
 # Gems used only for assets and not required
@@ -36,9 +41,11 @@ group :test do
 end
 
 gem "nokogiri"
-gem "mysql2", ">=0.3"
 gem "haml"
 gem "devise"
 
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
+
+gem 'heroku'
+gem 'taps'
