@@ -4,6 +4,11 @@ Bowlgame::Application.routes.draw do
 
   devise_for :users
   
+  match 'picks/:username' => 'picks#user'
+  match 'bowl_game/:id' => 'bowl_games#show'
+  match 'standings' => 'standings#index'
+  match 'standings/:username' => 'standings#show'
+  
   root :to => "home#index"
   
   # resources :users

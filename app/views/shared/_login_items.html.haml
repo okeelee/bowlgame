@@ -1,5 +1,7 @@
 - if user_signed_in?
   %li
+    = "#{%w[Welcome Hello][Random.rand(2)]} #{current_user.username || "you should make a username"}!"
+  %li
     = link_to "Logout", destroy_user_session_path, :method => :delete
 - else
   %li

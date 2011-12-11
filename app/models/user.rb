@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   
   has_many :picks
   
+  validates_uniqueness_of :username
+  validates_presence_of :username
+  
   def is_admin?
     self.admin?
   end
