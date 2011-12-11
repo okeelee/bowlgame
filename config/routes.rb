@@ -6,7 +6,8 @@ Bowlgame::Application.routes.draw do
   
   match 'picks/:username' => 'picks#show'
   match 'picks/:username/update' => 'picks#update'
-  match 'bowl_game/:id' => 'bowl_games#show'
+  match 'bowl_games' => 'bowl_games#index'
+  match 'bowl_games/:id' => 'bowl_games#show'
   match 'standings' => 'standings#index'
   match 'standings/:username' => 'standings#show'
   
