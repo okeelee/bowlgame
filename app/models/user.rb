@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   
   validates_uniqueness_of :username
   validates_presence_of :username
+  validates_format_of :username, :without => /\s/, :message => "can't have spaces"
   
   def is_admin?
     self.admin?
