@@ -5,19 +5,22 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-    %header
-      %div
-        = @pickem.name
-      %ul.menu
-        %li
-          = link_to 'Your Picks', user_picks_path(current_user.username) 
-        = render 'shared/registration_items'
-        = render 'shared/login_items'
-    %page
+  %body.body
+    #header.topbar
+      .fill
+        .container
+          %span.brand
+            = @pickem.name
+          %ul.nav
+            - if user_signed_in?
+              %li
+                = link_to 'Your Picks', user_picks_path(current_user.username) 
+            = render 'shared/registration_items'
+            = render 'shared/login_items'
+    #page.container
       .notice
         = notice
       .alert
         = alert
       = yield
-    %footer
+    #footer

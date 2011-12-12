@@ -1,0 +1,13 @@
+%h2
+  User Picks
+- @picks.each do |pick|
+  .pickContainer
+    .bowlGame
+      = pick.bowl_game.name
+    - pick.bowl_game.teams.each do |team|
+      .bowlTeam
+        %div{:class=>"team-logo espnId-#{team.espn_id}"}
+        .teamName
+          = team.name
+        .record
+          = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"

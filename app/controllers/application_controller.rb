@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :get_pickem
+  before_filter :get_pickem, :authenticate_user!
   
   def is_admin_user?
     redirect_to root_path unless current_user.is_admin?

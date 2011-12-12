@@ -3,11 +3,12 @@ class PicksController < ApplicationController
   
   # show the picks for the user allow editing if that user is the current one
   def user_picks
-     @bowl_games = BowlGame.includes([:picks,:teams]).where(:picks=>{:user_id=>@user.id})
+    @picks = Pick.includes([{:bowl_game=>[{:teams=>[:conference]}]}]).where({:user_id=>@user.id}).order('picks.points desc')
+    
     
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json { render json: @picks }
     end
   end
   
@@ -16,7 +17,7 @@ class PicksController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      format.json { render json: true }
     end
   end
   
