@@ -1,13 +1,28 @@
 %h2
   User Picks
-- @picks.each do |pick|
-  .pickContainer
-    .bowlGame
-      = pick.bowl_game.name
-    - pick.bowl_game.teams.each do |team|
-      .bowlTeam
-        %div{:class=>"team-logo espnId-#{team.espn_id}"}
-        .teamName
-          = team.name
-        .record
-          = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+= form_tag update_user_picks_path(@user.username), {:id=>"pickForm"} do
+  %table#pickTable
+    %thead
+      %tr
+        %th.confidence
+          Confidence
+        %th
+          Bowl Game
+        %th
+          Team
+        %th
+          Team
+    %tbody
+      - @picks.each_with_index do |pick,index|
+        %tr.pickContainer
+          %td.confidence
+            = text_field_tag "pick[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "span1"}
+          %td.bowlGame
+            = pick.bowl_game.name
+          - pick.bowl_game.teams.each do |team|
+            %td.bowlTeam
+              %div{:class=>"team-logo espnId-#{team.espn_id}"}
+              .teamName
+                = "#{team.school_name} #{team.name}"
+              .record
+                = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"

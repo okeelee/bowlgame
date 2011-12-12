@@ -5,6 +5,7 @@
  *= require_self
  *= require bootstrap
  *= require espn_logos
+ *= require picks
 */
 
 body.body {

@@ -1,3 +1,59 @@
 // Place all the styles related to the picks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+form#pickForm {
+  border-bottom: 1px solid #DDD;
+}
+
+table#pickTable {
+  margin-bottom: 0px;
+}
+
+table#pickTable tbody {
+  background-color:whiteSmoke;
+}
+
+tr.pickContainer {
+  background-color:white;
+}
+
+tr.pickContainer.ui-sortable-helper td {
+  border-bottom:1px solid #DDD;
+}
+
+tr.pickContainer td {
+  height:50px;
+  padding:2px 12px;
+  line-height:50px;
+}
+
+tr.pickContainer td.bowlTeam {
+  line-height:25px;
+}
+
+tr.pickContainer td.confidence {
+  font-size:45px;
+  padding:2px 20px;
+}
+
+tr.pickContainer td.confidence {
+  width: 64px;
+  height: 50px;
+}
+
+tr.pickContainer td.confidence input {
+  margin: 0px;
+  padding: 6px;
+  height: 36px;
+  line-height: 48px;
+  float: left;
+  width: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+
+tr.pickContainerHighlight {
+  border-top:1px solid #DDD;
+  background-color: #EEE;
+}
