@@ -1,6 +1,7 @@
+- hellos = ["Nei ho", "O'siyo", "Goddag", "Hallo", "Bonjour", "Guten tag", "Kalimera ", "Aloha", "Shalom", "Namaste", "Buon giorno", "Konnichiwa ", "Ahnyong", "Ni hao", "Ola", "Privet", "Talofa", "Hola", "Jambo", "Merhaba", "Chao", "Sawubona", "Hej"]
 - if user_signed_in?
   %li
-    = "#{%w[Welcome Hello][Random.rand(2)]} #{current_user.username || "you should make a username"}!"
+    = "#{hellos[Random.rand(23)]} #{current_user.username || "you should make a username"}!"
   %li
     = link_to "Logout", destroy_user_session_path, :method => :delete
 - else

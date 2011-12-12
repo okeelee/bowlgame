@@ -4,8 +4,8 @@ Bowlgame::Application.routes.draw do
 
   devise_for :users
   
-  match 'picks/:username' => 'picks#show'
-  match 'picks/:username/update' => 'picks#update'
+  match 'picks/:username' => 'picks#user_picks', :as => :user_picks
+  match 'picks/:username/update' => 'picks#update_user_picks', :as => :update_user_picks
   match 'bowl_games' => 'bowl_games#index'
   match 'bowl_games/:id' => 'bowl_games#show'
   match 'standings' => 'standings#index'
