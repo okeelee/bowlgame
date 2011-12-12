@@ -1,0 +1,354 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>My Page</title> 
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+</head>
+<script type="text/javascript">
+	$('#picksPage').live('pageinit',function(evt1) {
+		$('.teamLogo').each(function(index, element) {
+			$(element).bind('tap', function(evt2) {
+				$(this.parentNode)
+					.find('.teamSelected').toggleClass('teamSelected');
+				$(this).toggleClass('teamSelected');
+			});
+		});
+	});
+</script>
+<style type="text/css">
+.pickRow
+{
+	margin-top: 12px;
+}
+
+.bowlName
+{
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+.teamLogo, .pickActionPanel
+{
+	float: left;
+}
+
+.pickActionPanel a
+{
+	display: block;
+	margin-top: 20px;
+	margin-left: 12px;
+}
+
+.teamLogo
+{
+	background-color: #F5F5F5;
+	background-position: center center;
+	background-image: url('../../assets/images/ncaa_logo_sprite_med.gif');
+	background-repeat: no-repeat;
+	height: 75px;
+	width: 75px;
+}
+
+.med
+{
+  height: 50px;
+  width: 50px;
+}
+
+.teamSelected
+{
+	background-color: #C7E5FF;
+}
+
+.pickDropDown .ui-btn
+{
+	margin: 0 0 0 12px;
+}
+
+.pickDropDown .ui-btn-corner-all
+{
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.floatFix
+{
+	clear: both;
+}
+.teamLogo.med.espnId-36{ background-position: -280px -408px;  }
+</style> 
+<body> 
+<div id="picksPage" data-role="page">
+
+	<div data-role="header">
+		<h1>My Title</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" style="background-color: white;">
+		<div class="pickRow">
+			<div class="bowlName">NEW MEXICO BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo med espnId-36 teamSelected"></div>
+				<div class="teamLogo med espnId-36"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">HUMANITARIAN BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">NEW ORLEANS BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">HAWAI'I BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">LITTLE CAESARS BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">INDEPENDENCE BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">CHAMPS SPORTS BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">INSIGHT BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">MILITARY BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>
+		<div class="pickRow">
+			<div class="bowlName">TEXAS BOWL</div>
+			<div class="pickPanel">
+				<div class="teamLogo teamSelected"></div>
+				<div class="teamLogo"></div>
+				<div class="pickActionPanel">
+					<div class="pickDropDown">
+						<select>
+							<option value="0">--</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+					</div>
+					<a>Game Summary</a>
+				</div>
+				<div class="floatFix"></div>
+			</div>
+		</div>	
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
