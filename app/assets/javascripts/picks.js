@@ -29,6 +29,7 @@ $(function() {
     var $points = $("input.pickPointsInput");
     var total = $points.size();
     $points.each(function(index){$(this).val(total-index);});
+    postPickForm();
   });
   
   $("td.bowlTeam").click(function(){
@@ -36,6 +37,16 @@ $(function() {
     $team.addClass("pickedTeam");
     $team.siblings("td.bowlTeam").removeClass("pickedTeam");
     $team.siblings("td.confidence").find("input.pickTeamId").val($team.attr("data-team_id"));
+    postPickForm();
   });
+  
+  var postPickForm = function(){
+    $.post(
+      $("#pickForm").attr("action"), 
+      $("#pickForm").serialize(), 
+      function(data){},
+      'json'
+    );
+  };
   
 });

@@ -7,7 +7,7 @@ class PicksController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @picks }
+      format.js { render json: @picks }
     end
   end
   
@@ -15,18 +15,24 @@ class PicksController < ApplicationController
   def update_user_picks
     @picks = Pick.where({:user_id=>@user.id}).order('picks.points desc')
     
-    inserts = []
-    params[:picks].each do |value|
-      inserts << "('#{value.id}','#{value.points}')"
+    points = []
+    teams = []
+    pick_ids = []
+    params[:picks].each do |pick_id, pick_data|
+      pick_ids << pick_id.to_i
+      points << "WHEN #{pick_id.to_i} THEN #{pick_data['points'].to_i}"
+      teams << "WHEN #{pick_id.to_i} THEN #{pick_data['team_id'].to_i}"
     end
-    # Do the create as one big insert to speed it up
-    sql = "INSERT INTO picks (id, points) VALUES #{inserts.join(", ")}"
+    # Do the update as one big query to speed it up
+    sql = "UPDATE picks SET points = CASE id #{points.join(' ')} END, "
+    sql += "team_id = CASE id #{teams.join(' ')} END "
+    sql += "WHERE id IN(#{pick_ids.join(',')})"
     ActiveRecord::Base.connection.execute sql
     
     
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: true }
+      format.html { redirect_to user_picks_path(@user.username) }
+      format.js { render json: true }
     end
   end
   
