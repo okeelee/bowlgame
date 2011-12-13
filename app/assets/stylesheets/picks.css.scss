@@ -28,6 +28,10 @@ tr.pickContainer td {
   line-height:50px;
 }
 
+tr.pickContainer.editable td {
+  cursor:move;
+}
+
 tr.pickContainer td.bowlTeam {
   line-height:25px;
 }

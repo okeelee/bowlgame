@@ -2,22 +2,12 @@
   User Picks
 = form_tag update_user_picks_path(@user.username), {:id=>"pickForm"} do
   %table#pickTable
-    %thead
-      %tr
-        %th.confidence
-          Confidence
-        %th
-          Bowl Game
-        %th
-          Team
-        %th
-          Team
-    %tbody
+    %tbody{:class => "#{"editable" if @allow_edit}"}
       - @picks.each_with_index do |pick,index|
-        %tr.pickContainer
+        %tr.pickContainer{:class => "#{"editable" if @allow_edit}"}
           %td.confidence
             = hidden_field_tag "picks[#{pick.id}][team_id]", pick.team_id, {:class => "pickTeamId"}
-            = text_field_tag "picks[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "pickPointsInput"}
+            = text_field_tag "picks[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "pickPointsInput", :disabled => !@allow_edit}
           %td.bowlGame
             = pick.bowl_game.name
           - pick.bowl_game.teams.each do |team|

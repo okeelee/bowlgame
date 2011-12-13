@@ -3,9 +3,7 @@
 // # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(function() {
-  var fixHelper = function(e, ui){ui.children().each(function() {$(this).width($(this).width());});return ui;};
-  
-  $( "table#pickTable tbody" ).sortable({
+  $( "table#pickTable tbody.editable" ).sortable({
     items:"tr", 
     helper:function(e, ui){
       ui.children().each(function() {
@@ -25,14 +23,14 @@ $(function() {
     opacity:0.8
   }).disableSelection();
   
-  $("table#pickTable tbody").bind( "sortupdate", function(e, ui){
+  $("table#pickTable tbody.editable").bind( "sortupdate", function(e, ui){
     var $points = $("input.pickPointsInput");
     var total = $points.size();
     $points.each(function(index){$(this).val(total-index);});
     postPickForm();
   });
   
-  $("td.bowlTeam").click(function(){
+  $("table#pickTable tbody.editable tr td.bowlTeam").click(function(){
     var $team = $(this);
     $team.addClass("pickedTeam");
     $team.siblings("td.bowlTeam").removeClass("pickedTeam");

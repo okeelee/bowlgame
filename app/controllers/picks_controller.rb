@@ -13,22 +13,23 @@ class PicksController < ApplicationController
   
   # update the picks for the user if that user is the current user
   def update_user_picks
-    @picks = Pick.where({:user_id=>@user.id}).order('picks.points desc')
+    if @allow_edit
+      @picks = Pick.where({:user_id=>@user.id}).order('picks.points desc')
     
-    points = []
-    teams = []
-    pick_ids = []
-    params[:picks].each do |pick_id, pick_data|
-      pick_ids << pick_id.to_i
-      points << "WHEN #{pick_id.to_i} THEN #{pick_data['points'].to_i}"
-      teams << "WHEN #{pick_id.to_i} THEN #{pick_data['team_id'].to_i}"
+      points = []
+      teams = []
+      pick_ids = []
+      params[:picks].each do |pick_id, pick_data|
+        pick_ids << pick_id.to_i
+        points << "WHEN #{pick_id.to_i} THEN #{pick_data['points'].to_i}"
+        teams << "WHEN #{pick_id.to_i} THEN #{pick_data['team_id'].to_i}"
+      end
+      # Do the update as one big query to speed it up
+      sql = "UPDATE picks SET points = CASE id #{points.join(' ')} END, "
+      sql += "team_id = CASE id #{teams.join(' ')} END "
+      sql += "WHERE id IN(#{pick_ids.join(',')})"
+      ActiveRecord::Base.connection.execute sql
     end
-    # Do the update as one big query to speed it up
-    sql = "UPDATE picks SET points = CASE id #{points.join(' ')} END, "
-    sql += "team_id = CASE id #{teams.join(' ')} END "
-    sql += "WHERE id IN(#{pick_ids.join(',')})"
-    ActiveRecord::Base.connection.execute sql
-    
     
     respond_to do |format|
       format.html { redirect_to user_picks_path(@user.username) }
