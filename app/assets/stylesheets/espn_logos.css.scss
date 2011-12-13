@@ -1,3 +1,15 @@
+.bowlLogo {
+  width: 80px;
+  height: 80px;
+  background-image: url('bcs_bowl_sprite.png');
+}
+
+.bowlLogo.bowlId-fiestabowl{ background-position: 0 0; } 
+.bowlLogo.bowlId-nationalchampionship{ background-position: 0 -81px; } 
+.bowlLogo.bowlId-orangebowl{ background-position: 0 -162px; } 
+.bowlLogo.bowlId-rosebowl{ background-position: 0 -243px; } 
+.bowlLogo.bowlId-sugarbowl{ background-position: 0 -324px; }
+
 .teamLogo {
   width:25px;
   height:25px;
