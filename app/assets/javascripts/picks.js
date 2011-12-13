@@ -16,9 +16,6 @@ $(function() {
     start:function(){
       $("tr.pickContainerHighlight").append($("<td>").attr("colspan",4));
     },
-    update:function(e,ui){
-      
-    },
     axis:"y",
     placeholder:"pickContainerHighlight",
     forcePlaceholderSize:"true",
@@ -27,4 +24,18 @@ $(function() {
     tolerance:'pointer',
     opacity:0.8
   }).disableSelection();
+  
+  $("table#pickTable tbody").bind( "sortupdate", function(e, ui){
+    var $points = $("input.pickPointsInput");
+    var total = $points.size();
+    $points.each(function(index){$(this).val(total-index);});
+  });
+  
+  $("td.bowlTeam").click(function(){
+    var $team = $(this);
+    $team.addClass("pickedTeam");
+    $team.siblings("td.bowlTeam").removeClass("pickedTeam");
+    $team.siblings("td.confidence").find("input.pickTeamId").val($team.attr("data-team_id"));
+  });
+  
 });
