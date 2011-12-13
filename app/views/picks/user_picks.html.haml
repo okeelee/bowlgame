@@ -1,5 +1,5 @@
 %h2
-  User Hits
+  User Picks
 = form_tag update_user_picks_path(@user.username), {:id=>"pickForm"} do
   %table#pickTable
     %tbody{:class => "#{"editable" if @allow_edit}"}
