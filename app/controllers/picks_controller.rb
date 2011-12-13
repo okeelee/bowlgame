@@ -3,11 +3,15 @@ class PicksController < ApplicationController
   
   # show the picks for the user allow editing if that user is the current one
   def user_picks
-    @picks = Pick.includes([{:bowl_game=>[{:teams=>[:conference]}]}]).where({:user_id=>@user.id}).order('picks.points desc')
+    if @allow_edit || @pickem.start_time < Time.now
+      @picks = Pick.includes([{:bowl_game=>[{:teams=>[:conference]}]}]).where({:pickem_id=>@pickem.id}).where({:user_id=>@user.id}).order('picks.points desc')
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js { render json: @picks }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.js { render json: @picks }
+      end
+    else
+      redirect_to user_picks_path(current_user.username)
     end
   end
   
