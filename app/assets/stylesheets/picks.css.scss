@@ -32,6 +32,19 @@ tr.pickContainer td.bowlTeam {
   line-height:25px;
 }
 
+tr.pickContainer td.bowlTeam.pickedTeam {
+  background-color:#DDF4FB;
+}
+
+tr.pickContainer td.bowlTeam div.teamLogo {
+  float:left;
+}
+
+tr.pickContainer td.bowlTeam div.teamInfo {
+  margin:0px 0px 0px 60px;
+  height:50px;
+}
+
 tr.pickContainer td.confidence {
   font-size:45px;
   padding:2px 20px;

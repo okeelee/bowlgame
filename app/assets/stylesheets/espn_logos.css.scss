@@ -1,8 +1,32 @@
+<<<<<<< HEAD
 .bowlLogo.bowlId-fiestabowl{ background-position: 0 0; width: 80px; height: 80px; } 
 .bowlLogo.bowlId-nationalchampionship{ background-position: 0 -81px; width: 80px; height: 80px; } 
 .bowlLogo.bowlId-orangebowl{ background-position: 0 -162px; width: 80px; height: 80px; } 
 .bowlLogo.bowlId-rosebowl{ background-position: 0 -243px; width: 80px; height: 80px; } 
 .bowlLogo.bowlId-sugarbowl{ background-position: 0 -324px; width: 80px; height: 80px; }
+
+.teamLogo {
+  width:25px;
+  height:25px;
+  background-image:url('ncaa_logo_sprite.png');
+}
+.teamLogo.med {
+  width:50px;
+  height:50px;
+  background-image:url('ncaa_logo_sprite_med.gif');
+}
+=======
+.teamLogo {
+  width:25px;
+  height:25px;
+  background-image:url('ncaa_logo_sprite.png');
+}
+.teamLogo.med {
+  width:50px;
+  height:50px;
+  background-image:url('ncaa_logo_sprite_med.gif');
+}
+>>>>>>> 63d084b0b6abad4cb2bfaded2b6e70fb784243c0
 
 .teamLogo.espnId-2 { 	background-position: 0px -25px;  }
 .teamLogo.espnId-3 { 	background-position: -25px -25px;  }

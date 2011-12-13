@@ -16,13 +16,16 @@
       - @picks.each_with_index do |pick,index|
         %tr.pickContainer
           %td.confidence
-            = text_field_tag "pick[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "span1"}
+            = hidden_field_tag "picks[#{pick.id}][id]", pick.id
+            = hidden_field_tag "picks[#{pick.id}][team_id]", pick.team_id, {:class => "pickTeamId"}
+            = text_field_tag "picks[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "pickPointsInput"}
           %td.bowlGame
             = pick.bowl_game.name
           - pick.bowl_game.teams.each do |team|
-            %td.bowlTeam
-              %div{:class=>"team-logo espnId-#{team.espn_id}"}
-              .teamName
-                = "#{team.school_name} #{team.name}"
-              .record
-                = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+            %td.bowlTeam{"data-team_id"=>team.id}
+              %div.teamLogo.med{:class=>"espnId-#{team.espn_id}"}
+              .teamInfo
+                .teamName
+                  = "#{team.school_name} #{team.name}"
+                .record
+                  = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
