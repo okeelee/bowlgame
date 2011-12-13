@@ -2,6 +2,7 @@ class Pick < ActiveRecord::Base
   belongs_to :team
   belongs_to :user
   belongs_to :bowl_game
+  belongs_to :pickem
   
   validates_uniqueness_of :bowl_game_id, :scope => :user_id
   
