@@ -27,6 +27,8 @@ Bowlgame::Application.configure do
   config.assets.compile = false
   
   config.assets.initialize_on_precompile = false
+  
+  config.assets.precompile += %w[active_admin.css active_admin.js]
 
   # Generate digests for assets URLs
   config.assets.digest = true
