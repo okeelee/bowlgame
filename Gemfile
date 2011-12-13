@@ -10,6 +10,7 @@ group :production do
 end
 group :development, :test do
   gem "mysql2", ">=0.3"
+  gem "sqlite3"
 end
 
 gem 'sass-rails',   '~> 3.1.5'
