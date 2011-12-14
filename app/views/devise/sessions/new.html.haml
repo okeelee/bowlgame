@@ -1,31 +1,32 @@
 %h2 Sign in
-.span-one-third
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %div
-      = f.label :email
-      %br/
-      = f.email_field :email
-    %div
-      = f.label :password
-      %br/
-      = f.password_field :password
-    - if devise_mapping.rememberable?
+.row
+  .span-one-third
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       %div
-        = f.check_box :remember_me
-        = f.label :remember_me
-    %div= f.submit "Sign in"
-  = render :partial => "devise/shared/links"
-.span-two-thirds
-  %p{:style => "color:#555555;font-family:arial;font-size:110%"}
-    %b Welcome to the 2011 Bowlgame Pick 'em Pool
-  %p{:style => "font-size:90%"}
-    Make picks for all bowl games and determine confidence levels.  The confidence points you attribute to each game you GAIN if you predict the game correctly, or LOSE if you choose the game wrong.
-  %p
-    %span{:style => "color:red"}
-      PICKS NEED TO BE IN BY SATURDAY, DEC 18th @ 11:00 AM
-      %b PST
-      !!!
-    %br/
-  %p{:style => "font-size:80%"}
-    Questions? Contact
-    %a{:href => "mailto:csi7585@gmail.com"} csi7585@gmail.com
+        = f.label :email
+        %br/
+        = f.email_field :email
+      %div
+        = f.label :password
+        %br/
+        = f.password_field :password
+      - if devise_mapping.rememberable?
+        %div
+          = f.check_box :remember_me
+          = f.label :remember_me
+      %div= f.submit "Sign in"
+    = render :partial => "devise/shared/links"
+  .span-two-thirds
+    %p{:style => "color:#555555;font-family:arial;font-size:110%"}
+      %b Welcome to the 2012 Bowlgame Pick 'em Pool
+    %p{:style => "font-size:90%"}
+      Make picks for all bowl games and determine confidence levels.  The confidence points you attribute to each game you GAIN if you predict the game correctly, or LOSE if you choose the game wrong.
+    %p
+      %span{:style => "color:red"}
+        PICKS NEED TO BE IN BY SATURDAY, DEC 17th @ 10:00 AM
+        %b PST
+        !!!
+      %br/
+    %p{:style => "font-size:80%"}
+      Questions? Contact
+      %a{:href => "mailto:csi7585@gmail.com"} csi7585@gmail.com
