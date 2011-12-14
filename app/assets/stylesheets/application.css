@@ -6,6 +6,7 @@
  *= require bootstrap
  *= require espn_logos
  *= require picks
+ *= require bowl_games
 */
 
 body.body {
