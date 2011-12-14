@@ -12,11 +12,12 @@
             = pick.bowl_game.name
           - pick.bowl_game.teams.each do |team|
             %td.bowlTeam{"data-team_id"=>team.id, :class=>"#{"pickedTeam" if team.id == pick.team_id}"}
-              %div.teamLogo.med{:class=>"espnId-#{team.espn_id}"}
-              .teamInfo
-                .teamName
-                  = team.school_name
-                  %small
-                    = team.name
-                .record
-                  = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+              .teamWrapper
+                .teamLogo.med{:class=>"espnId-#{team.espn_id}"}
+                .teamInfo
+                  .teamName
+                    = team.school_name
+                    %small
+                      = team.name
+                  .record
+                    = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"

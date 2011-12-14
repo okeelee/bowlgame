@@ -24,7 +24,7 @@ tr.pickContainer.ui-sortable-helper td {
 
 tr.pickContainer td {
   height:50px;
-  padding:2px 12px;
+  padding:1px;
   line-height:50px;
 }
 
@@ -36,8 +36,15 @@ tr.pickContainer td.bowlTeam {
   line-height:25px;
 }
 
-tr.pickContainer td.bowlTeam.pickedTeam {
-  background-color:#DDF4FB;
+tr.pickContainer td.bowlTeam .teamWrapper {
+  padding: 0px 10px;
+  border: 1px solid white;
+}
+
+tr.pickContainer td.bowlTeam.pickedTeam .teamWrapper {
+  background-color: #DDF4FB;
+  border-radius: 4px;
+  border-color: #94B1BA;
 }
 
 tr.pickContainer td.bowlTeam div.teamLogo {
