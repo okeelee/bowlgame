@@ -7,24 +7,28 @@
   {
     width: 150px;
   }
+  .loginControl input[type="submit"]
+  {
+    width: auto;
+  }
 %h2 Sign in
 .row
   .loginControl.span-one-third
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       .row
         .span2
-          = f.label :email
+          Email
         .span3
           = f.email_field :email
       .row
         .span2
-          = f.label :password
+          Password
         .span3
           = f.password_field :password
       .row
         - if devise_mapping.rememberable?
           .span2
-            = f.label :remember_me
+            Remember Me
             = f.check_box :remember_me
         .span3
           = f.submit "Sign in"
