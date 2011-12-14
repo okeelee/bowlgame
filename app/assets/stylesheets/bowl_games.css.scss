@@ -1,3 +1,74 @@
 // Place all the styles related to the bowl_games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container .page-header
+{
+  margin-top: 25px;
+}
+.bowl_game
+{
+  font-size: 12px;
+  margin-bottom: 17px;
+}
+
+.bowl_game_inner
+{
+  margin: 0 6px;
+}
+
+.bowl_game .team_rows
+{
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 4px;
+  padding: 6px 0 4px;
+}
+
+.bowl_game .team_row
+{
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.bowl_game .game_location
+{
+  width: 49%;
+}
+.bowl_game .game_time
+{
+  width: 44%;
+  margin-left: 0;
+}
+
+.bowl_game .game_time, .bowl_game .team_score_col
+{
+  text-align: right;
+}
+
+.bowl_game .team_logo_col, .bowl_game .team_score_col
+{
+  width: 13%;
+}
+
+.bowl_game .team_col
+{
+  margin-left: 0;
+  width: 61%;
+}
+
+.bowl_game .team_col .team_name
+{
+  font-weight: bold;
+}
+
+.bowl_game .team_col .team_record
+{
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.bowl_game h4 small
+{
+  font-size: 16px;
+}
