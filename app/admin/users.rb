@@ -15,7 +15,7 @@ ActiveAdmin.register User do
   
   show :title => :username do
     h3 user.username
-    attributes_table :username, :email, :admin, :paid
+    attributes_table :username, :first_name, :last_name, :email, :admin, :paid
   end
   
   form do |f|
