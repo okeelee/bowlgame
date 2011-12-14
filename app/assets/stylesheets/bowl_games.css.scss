@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container .page-header
-{
-  margin-top: 25px;
-}
 .bowl_game
 {
   font-size: 12px;
   margin-bottom: 17px;
+}
+
+.bowl_game_week_row
+{
+  margin-bottom: 25px;
 }
 
 .bowl_game_inner

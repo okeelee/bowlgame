@@ -1,27 +1,26 @@
-.container{:style => "padding-top: 40px"}
-  - @bowl_games_hash.each do |week, bowl_games_weeks|
-    .page-header
-      %h1= "Week #{week}"
-    .row
-      - for bowl_game in bowl_games_weeks
-        .bowl_game.span-one-third
-          .bowl_game_inner
-            %h4
-              = "#{bowl_game.name}"
-              %small= "#{bowl_game.network}"
-            .row
-              .game_location.span2
-                = "#{bowl_game.city}, #{bowl_game.state}"
-              .game_time.span3
-                = bowl_game.game_time.strftime("%a, %b %d | %I:%M %p")
-            .team_rows
-              - for team in bowl_game.teams
-                .team_row.row
-                  .team_logo_col.span1
-                    %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
-                  .team_col.span3
-                    .team_name= "#{team.school_name}"
-                    .team_record
-                      = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
-                  .team_score_col.span1
-                    / TODO: Add score from finished game
+- @bowl_games_hash.each do |week, bowl_games_weeks|
+  .page-header
+    %h1= "Week #{week}"
+  .bowl_game_week_row.row
+    - for bowl_game in bowl_games_weeks
+      .bowl_game.span-one-third
+        .bowl_game_inner
+          %h4
+            = "#{bowl_game.name}"
+            %small= "#{bowl_game.network}"
+          .row
+            .game_location.span2
+              = "#{bowl_game.city}, #{bowl_game.state}"
+            .game_time.span3
+              = bowl_game.game_time.strftime("%a, %b %d | %I:%M %p")
+          .team_rows
+            - for team in bowl_game.teams
+              .team_row.row
+                .team_logo_col.span1
+                  %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+                .team_col.span3
+                  .team_name= "#{team.school_name}"
+                  .team_record
+                    = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+                .team_score_col.span1
+                  / TODO: Add score from finished game
