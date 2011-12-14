@@ -10,8 +10,10 @@
       .fill
         .container
           %span.brand
-            = @pickem.name
+            = link_to @pickem.name, root_path
           %ul.nav
+            %li
+              = link_to 'Bowl Games', bowl_games_path 
             - if user_signed_in?
               %li
                 = link_to 'Your Picks', user_picks_path(current_user.username)

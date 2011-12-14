@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :paid, :admin
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :paid, :admin, :first_name, :last_name
   
   has_many :picks
   
-  validates_uniqueness_of :username
-  validates_presence_of :username
+  validates_presence_of :first_name
+  validates_presence_of :last_name
   validates_format_of :username, :without => /\s/, :message => "can't have spaces"
   
   def is_admin?
