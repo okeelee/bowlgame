@@ -2,6 +2,8 @@ ActiveAdmin.register User do
   index do
     column :email
     column :username
+    column :first_name
+    column :last_name
     column :admin
     column :paid
     column "Set Paid / Gen Picks" do |user|
@@ -22,6 +24,8 @@ ActiveAdmin.register User do
     f.inputs "User Information" do
       f.input :username
       f.input :email
+      f.input :first_name
+      f.input :last_name
       f.input :admin
       f.input :paid
     end
