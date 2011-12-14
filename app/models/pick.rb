@@ -11,7 +11,7 @@ class Pick < ActiveRecord::Base
     bowl_games = BowlGame.where({:pickem_id=>pickem.id})
     
     bowl_games.each do |bowl_game|
-      Pick.create({:user_id=>user.id, :bowl_game_id=>bowl_game.id})
+      Pick.create({:user_id=>user.id, :bowl_game_id=>bowl_game.id, :pickem_id=>pickem.id})
     end
   end
 end
