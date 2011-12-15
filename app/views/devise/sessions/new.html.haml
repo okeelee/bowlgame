@@ -2,10 +2,15 @@
   .loginControl
   {
     border: 1px solid #ddd;
+    padding: 6px 10px;
   }
   .loginControl .row
   {
-    margin: 12px 0;
+    margin: 6px 0;
+  }
+  .loginControl .span2
+  {
+    width: 75px;
   }
   .loginControl input
   {
@@ -15,14 +20,30 @@
   {
     width: auto;
   }
+  .loginControl input
+  {
+    float: left;
+  }
+  .rememberMe
+  {
+    float: left;
+    font-size: 12px;
+  }
   .welcome_message
   {
     padding: 4px;
   }
+  .bowlLogo
+  {
+    float: left;
+  }
+  .floatFix
+  {
+    clear: both;
+  }
 .row
   .span-one-third
     .loginControl
-      %h3 Sign in
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         .row
           .span2
@@ -35,15 +56,23 @@
           .span3
             = f.password_field :password
         .row
-          - if devise_mapping.rememberable?
-            .span2
-              Remember Me
-              = f.check_box :remember_me
+          .span2    
           .span3
+            - if devise_mapping.rememberable?
+              .rememberMe
+                Remember Me
+              = f.check_box :remember_me
             = f.submit "Sign in"
       = render :partial => "devise/shared/links"
   .span-two-thirds
     .welcome_message
+      .bcsBowl
+        .bowlLogo.bowlId-nationalchampionship
+        .bowlLogo.bowlId-rosebowl
+        .bowlLogo.bowlId-sugarbowl
+        .bowlLogo.bowlId-fiestabowl
+        .bowlLogo.bowlId-orangebowl
+        .floatFix
       %h3 Welcome to the 2012 Bowlgame Pick 'em Pool
       %p
         Make picks for all bowl games and determine confidence levels.  The confidence points you attribute to each game you GAIN if you predict the game correctly, or LOSE if you choose the game wrong.
