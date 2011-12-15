@@ -3,6 +3,7 @@
   {
     border: 1px solid #ddd;
     padding: 6px 10px;
+    margin-top: 50px;
   }
   .loginControl .row
   {
@@ -11,23 +12,26 @@
   .loginControl .span2
   {
     width: 75px;
+    text-align: right;
   }
-  .loginControl input
+  .loginControl input[type="text"]
   {
     width: 150px;
   }
   .loginControl input[type="submit"]
   {
-    width: auto;
+    float: right;
   }
-  .loginControl input
+  .loginControl input[type="checkbox"]
   {
     float: left;
+    margin-left: 6px;
   }
   .rememberMe
   {
     float: left;
     font-size: 12px;
+    margin-top: 2px;
   }
   .welcome_message
   {
@@ -63,6 +67,7 @@
                 Remember Me
               = f.check_box :remember_me
             = f.submit "Sign in"
+            .floatFix 
       = render :partial => "devise/shared/links"
   .span-two-thirds
     .welcome_message
