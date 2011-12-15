@@ -2,16 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page-header.bowl-week
+{
+  margin-top: 20px;
+}
+
 .bowl_game
 {
   font-size: 12px;
   margin-bottom: 17px;
 }
 
-.bowl_game_week_row
+/*.bowl_game_week_row
 {
   margin-bottom: 25px;
-}
+}*/
 
 .bowl_game_inner
 {

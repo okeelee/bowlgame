@@ -1,7 +1,9 @@
+%h1
+  Bowl Games
 - @bowl_games_hash.each do |week, bowl_games_weeks|
-  .page-header
-    %h1= "Week #{week}"
-  .bowl_game_week_row.row
+  .page-header.bowl-week
+    %h2= "Week #{week}"
+  .row
     - for bowl_game in bowl_games_weeks
       .bowl_game.span-one-third
         .bowl_game_inner
