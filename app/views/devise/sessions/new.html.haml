@@ -1,4 +1,8 @@
 :css
+  .loginControl
+  {
+    border: 1px solid #ddd;
+  }
   .loginControl .row
   {
     margin: 12px 0;
@@ -11,38 +15,44 @@
   {
     width: auto;
   }
-%h2 Sign in
+  .welcome_message
+  {
+    padding: 4px;
+  }
 .row
-  .loginControl.span-one-third
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      .row
-        .span2
-          Email
-        .span3
-          = f.email_field :email
-      .row
-        .span2
-          Password
-        .span3
-          = f.password_field :password
-      .row
-        - if devise_mapping.rememberable?
+  .span-one-third
+    .loginControl
+      %h3 Sign in
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .row
           .span2
-            Remember Me
-            = f.check_box :remember_me
-        .span3
-          = f.submit "Sign in"
-    = render :partial => "devise/shared/links"
+            Email
+          .span3
+            = f.email_field :email
+        .row
+          .span2
+            Password
+          .span3
+            = f.password_field :password
+        .row
+          - if devise_mapping.rememberable?
+            .span2
+              Remember Me
+              = f.check_box :remember_me
+          .span3
+            = f.submit "Sign in"
+      = render :partial => "devise/shared/links"
   .span-two-thirds
-    %h3 Welcome to the 2012 Bowlgame Pick 'em Pool
-    %p
-      Make picks for all bowl games and determine confidence levels.  The confidence points you attribute to each game you GAIN if you predict the game correctly, or LOSE if you choose the game wrong.
-    %p
-      %span{:style => "color:red"}
-        PICKS NEED TO BE IN BY SATURDAY, DEC 17th @ 10:00 AM
-        %b PST
-        !!!
-      %br/
-    %p{:style => "font-size:90%"}
-      Questions? Contact
-      %a{:href => "mailto:csi7585@gmail.com"} csi7585@gmail.com
+    .welcome_message
+      %h3 Welcome to the 2012 Bowlgame Pick 'em Pool
+      %p
+        Make picks for all bowl games and determine confidence levels.  The confidence points you attribute to each game you GAIN if you predict the game correctly, or LOSE if you choose the game wrong.
+      %p
+        %span{:style => "color:red"}
+          PICKS NEED TO BE IN BY SATURDAY, DEC 17th @ 10:00 AM
+          %b PST
+          !!!
+        %br/
+      %p{:style => "font-size:90%"}
+        Questions? Contact
+        %a{:href => "mailto:csi7585@gmail.com"} csi7585@gmail.com
