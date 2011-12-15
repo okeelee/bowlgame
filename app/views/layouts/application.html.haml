@@ -20,9 +20,11 @@
             = render 'shared/registration_items'
             = render 'shared/login_items'
     #page.container
-      .notice
-        = notice
-      .alert
-        = alert
+      - if notice
+        .notice.alert-message.success
+          = notice
+      - if alert
+        .alert.alert-message.error
+          = alert
       = yield
     #footer
