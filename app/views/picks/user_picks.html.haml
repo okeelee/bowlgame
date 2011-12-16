@@ -1,10 +1,6 @@
 %h2
   User Picks
-- if @user.paid?
-  %a.wepay-widget{:href => "https://www.wepay.com/events/view/32265?widget_type=tickets&widget_ticket_id=32265&widget_auth_token=d8b2727cef48d24b8d7d440512c01f2bb2dfe2a7&widget_show_description=0&widget_show_tickets=1"}
-    Buy Tickets for 4th Annual Bowl Game Pick 'Em
-    %script#wepay-widget_script{:src => "https://www.wepay.com/min/js/widget.wepay.js", :type => "text/javascript"}
-- else
+- unless @user.paid.nil? || !@user.paid
   = form_tag update_user_picks_path(@user.username), {:id=>"pickForm"} do
     %table#pickTable
       %tbody{:class => "#{"editable" if @allow_edit}"}
@@ -24,3 +20,7 @@
                       = "#{team.school_name} #{team.name}"
                     .record
                       = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+- else
+  %a.wepay-widget{:href => "https://www.wepay.com/events/view/32265?widget_type=tickets&widget_ticket_id=32265&widget_auth_token=d8b2727cef48d24b8d7d440512c01f2bb2dfe2a7&widget_show_description=0&widget_show_tickets=1"}
+    Buy Tickets for 4th Annual Bowl Game Pick 'Em
+    %script#wepay-widget_script{:src => "https://www.wepay.com/min/js/widget.wepay.js", :type => "text/javascript"}
