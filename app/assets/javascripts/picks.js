@@ -24,9 +24,7 @@ $(function() {
   }).disableSelection();
   
   $("table#pickTable tbody.editable").bind( "sortupdate", function(e, ui){
-    var $points = $("input.pickPointsInput");
-    var total = $points.size();
-    $points.each(function(index){$(this).val(total-index);});
+    setPoints();
     postPickForm();
   });
   
@@ -35,8 +33,15 @@ $(function() {
     $team.addClass("pickedTeam");
     $team.siblings("td.bowlTeam").removeClass("pickedTeam");
     $team.siblings("td.confidence").find("input.pickTeamId").val($team.attr("data-team_id"));
+    setPoints();
     postPickForm();
   });
+  
+  var setPoints = function(){
+    var $points = $("input.pickPointsInput");
+    var total = $points.size();
+    $points.each(function(index){$(this).val(total-index);});
+  };
   
   var postPickForm = function(){
     $.post(
