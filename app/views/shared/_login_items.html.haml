@@ -4,7 +4,7 @@
     %p
       - unless current_user.first_name.blank?
         = "#{hellos[Random.rand(23)]} #{current_user.first_name}!"
-      -else
+      - else
         =link_to("Add Your Name", edit_user_registration_path)
   %li
     = link_to "Logout", destroy_user_session_path, :method => :delete
