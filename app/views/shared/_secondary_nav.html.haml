@@ -1,0 +1,11 @@
+- hellos = ["Nei ho", "O'siyo", "Goddag", "Hallo", "Bonjour", "Guten tag", "Kalimera ", "Aloha", "Shalom", "Namaste", "Buon giorno", "Konnichiwa ", "Ahnyong", "Ni hao", "Ola", "Privet", "Talofa", "Hola", "Jambo", "Merhaba", "Chao", "Sawubona", "Hej"]
+- if user_signed_in?
+  %ul.nav.secondary-nav
+    %li.dropdown
+      %a.dropdown-toggle{:href => "#"}
+        = "#{hellos[Random.rand(23)]} #{current_user.first_name}!"
+      %ul.dropdown-menu
+        %li
+          = link_to "Edit registration", edit_user_registration_path
+        %li
+          = link_to "Logout", destroy_user_session_path, :method => :delete
