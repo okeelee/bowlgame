@@ -17,7 +17,8 @@
             - if user_signed_in?
               %li
                 = link_to 'Your Picks', user_picks_path(current_user.username)
-          = render 'shared/secondary_nav'
+            = render 'shared/registration_items'
+            = render 'shared/login_items'
     #page.container
       - if notice
         .notice.alert-message.success
