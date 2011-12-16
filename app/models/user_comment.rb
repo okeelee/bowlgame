@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class UserComment < ActiveRecord::Base
 
   include ActsAsCommentable::Comment
 
