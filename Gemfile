@@ -48,7 +48,6 @@ gem "devise"
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
 
-gem 'acts_as_commentable'
 gem 'kaminari'
 
 gem 'heroku'
