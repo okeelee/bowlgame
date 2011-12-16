@@ -9,7 +9,7 @@
     #header.topbar
       .fill
         .container
-          %span.brand
+          %span.brand{:style => "color:white"}
             = link_to @pickem.name, root_path
           %ul.nav
             %li
@@ -17,8 +17,7 @@
             - if user_signed_in?
               %li
                 = link_to 'Your Picks', user_picks_path(current_user.username)
-            = render 'shared/registration_items'
-            = render 'shared/login_items'
+          = render 'shared/secondary_nav'
     #page.container
       - if notice
         .notice.alert-message.success
