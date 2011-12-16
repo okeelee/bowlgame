@@ -45,7 +45,6 @@ class PicksController < ApplicationController
   
   def get_user
     @user = User.where({:username=>params[:username]}).first
-    @user_paid = @user.paid
     @allow_edit = (@user==current_user) ? true : false
   end
 end
