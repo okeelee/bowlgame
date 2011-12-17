@@ -45,6 +45,6 @@ class PicksController < ApplicationController
   
   def get_user
     @user = User.where({:username=>params[:username]}).first
-    @allow_edit = (@user==current_user) ? true : false
+    @allow_edit = (@user==current_user && @pickem.start_time > Time.now) ? true : false
   end
 end

@@ -4,6 +4,8 @@ class HomeController < ApplicationController
   # GET /users.json
   def index
     
+    @posts = Post.includes(:user_comments).page(params[:page]).per(5)
+    
     respond_to do |format|
       format.html # index.html.erb
     end

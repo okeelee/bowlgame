@@ -1,9 +1,13 @@
 .row
   .span-two-thirds
-    .page-header
-      %h2
-        Set Your Picks
-    Click on "Your Picks" above to set your picks. Click the team you think is going to win and drag the row to your confidence level.
+    - @posts.each do |post|
+      .page-header
+        %h2
+          = post.title
+          %small
+            = "#{post.author.try(:first_name)} #{post.author.try(:last_name)}"
+      .post_body
+        = post.body
   .span-one-third
     .page-header
       %h3

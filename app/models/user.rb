@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :paid, :admin, :first_name, :last_name
   
   has_many :picks
+  has_many :posts
   
   validates_presence_of :first_name
   validates_presence_of :last_name
