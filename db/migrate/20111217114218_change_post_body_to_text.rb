@@ -1,4 +1,4 @@
-class ChangePostBodyToTest < ActiveRecord::Migration
+class ChangePostBodyToText < ActiveRecord::Migration
   def up
     change_column :posts, :body, :text
   end
