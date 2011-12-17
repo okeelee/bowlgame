@@ -1,6 +1,7 @@
 class StandingsController < ApplicationController
   
   def index
+    @users = User.includes([{:picks=>[:bowl_game,:team]}]).where(:paid=>true).order("users.score desc")
     
     respond_to do |format|
       format.html # index.html.erb

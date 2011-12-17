@@ -5,7 +5,7 @@
         %h2
           = post.title
           %small
-            = "#{post.author.try(:first_name)} #{post.author.try(:last_name)}"
+            = "#{post.author.try(:first_name)} #{post.author.try(:last_name)} - #{post.created_at.strftime("%m/%d/%Y")}"
       .post_body
         = post.body
   .span-one-third

@@ -1,3 +1,15 @@
-%h1
-  Listing standings
-
+%h2
+  Standings
+.standings
+  - @users.each do |user|
+    .row
+      .score.span3
+        = user.score
+      .span13
+        .row
+          .user_info.span13
+            = user.full_name
+          .top_picks.span13
+            - user.picks[0..4].each do |pick|
+              .med.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
+  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111216024152) do
+ActiveRecord::Schema.define(:version => 20111217200140) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -46,20 +46,6 @@ ActiveRecord::Schema.define(:version => 20111216024152) do
     t.datetime "updated_at"
   end
 
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
   create_table "conferences", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
@@ -88,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20111216024152) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.boolean  "disallow_comments"
     t.integer  "author_id"
     t.datetime "created_at"
@@ -140,6 +126,20 @@ ActiveRecord::Schema.define(:version => 20111216024152) do
     t.integer  "wins"
   end
 
+  create_table "user_comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "user_comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "user_comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20111216024152) do
     t.boolean  "paid"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "score",                                 :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
