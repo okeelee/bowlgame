@@ -1,15 +1,86 @@
-.row
+:css
+  .user_fullname
+  {
+    font-size: 18px;
+    padding-top: 12px;
+  }
+  .user_fullname a
+  {
+    text-decoration: none;
+    color: #404040;
+  }
+  .user_fullname a:hover
+  {
+    text-decoration: underline;
+  }
+  .standings_row
+  {
+    margin: 5px 0;
+  }
+  .standings_row .span3
+  {
+    margin-left: 0;
+  }
+  .score
+  {
+    font-size:45px;
+    line-height: 45px;
+    text-align: right;
+  }
+  .score.positive {
+    color:#57A957;
+  }
+  .score.negative {
+    color:#C43C35;
+  }
+.container_row.row
+  .page-header.span16
+    %h2
+      Today's Games
+  - @games_today.each do |game|
+    .bowl_game.span-one-third
+      .bowl_game_inner
+        %h4
+          = "#{game.name}"
+          %small= "#{game.network}"
+        .row
+          .game_location.span2
+            = "#{game.city}, #{game.state}"
+          .game_time.span3
+            = game.game_time.strftime("%a, %b %d | %I:%M %p")
+        .team_rows
+          - for team in game.teams
+            .team_row.row
+              .team_logo_col.span1
+                %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+              .team_col.span3
+                .team_name= "#{team.school_name}"
+                .team_record
+                  = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+              .team_score_col.span1
+                / TODO: Add score from finished game
+.container_row.row
   .span-two-thirds
+    .page-header
+      %h2 
+        Latest News
     - @posts.each do |post|
-      .page-header
-        %h2
-          = post.title
-          %small
-            = "#{post.author.try(:first_name)} #{post.author.try(:last_name)} - #{post.created_at.strftime("%m/%d/%Y")}"
+      %h3
+        = post.title
+        %small
+          = "#{post.author.try(:first_name)} #{post.author.try(:last_name)} - #{post.created_at.strftime("%m.%d.%Y")}"
       .post_body
         = post.body
   .span-one-third
     .page-header
-      %h3
-        Standings
-    Coming Soon...
+      %h2 
+        Top 5
+    %table.zebra-striped
+      - @top5.each do |user|
+        %tr
+          %td
+            .user_fullname
+              = link_to user.full_name, user_picks_path(user.username)
+          %td
+            .score{:class=>"#{(user.score > 0) ? 'positive' : ((user.score < 0) ? 'negative' : '' )}"}
+              = user.score

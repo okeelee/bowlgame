@@ -31,3 +31,8 @@ body.body {
 .clear {
   clear:both;
 }
+
+.container_row
+{
+  margin-bottom: 20px;
+}
