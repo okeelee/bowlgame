@@ -8,7 +8,7 @@
       .span14
         .row
           .user_info.span14
-            = user.full_name
+            = link_to user.full_name, user_picks_path(user.username)
           .top_picks.span14
             - user.picks[0..4].each do |pick|
               .top_pick.left
