@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     users.each do |user|
       user.score = 0
       user.picks.where({:bowl_game_id=>[bowl_ids]}).each do |pick|
-        if pick.team_id.present? && p.team_id!=0 && pick.points.present?
+        if pick.team_id.present? && pick.team_id!=0 && pick.points.present?
           if winner_ids.include?(pick.team_id)
             user.score += pick.points
           else
