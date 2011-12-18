@@ -5,7 +5,7 @@
     %table#pickTable
       %tbody{:class => "#{"editable" if @allow_edit}"}
         - @picks.each_with_index do |pick,index|
-          %tr.pickContainer{:class => "#{"editable" if @allow_edit}"}
+          %tr.pickContainer{:class => "#{"editable" if @allow_edit} #{((pick.team_id == pick.bowl_game.winner_id) ? "correct" : "incorrect" ) if pick.bowl_game.winner_id.present?}"}
             %td.confidence
               = hidden_field_tag "picks[#{pick.id}][team_id]", pick.team_id, {:class => "pickTeamId"}
               = text_field_tag "picks[#{pick.id}][points]", (pick.points || @picks.size-index), {:maxlength => 2, :size => 2, :class => "pickPointsInput", :disabled => !@allow_edit}

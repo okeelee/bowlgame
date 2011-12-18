@@ -49,6 +49,16 @@ tr.pickContainer td.bowlTeam.pickedTeam .teamWrapper {
   border-color: #94B1BA;
 }
 
+tr.pickContainer.correct td.bowlTeam.pickedTeam .teamWrapper {
+  background-color: #D1EED1;
+  border-color: #9CB29C;
+}
+
+tr.pickContainer.incorrect td.bowlTeam.pickedTeam .teamWrapper {
+  background-color: #FDDFDE;
+  border-color: #BDA7A6;
+}
+
 tr.pickContainer td.bowlTeam div.teamLogo {
   float:left;
 }
