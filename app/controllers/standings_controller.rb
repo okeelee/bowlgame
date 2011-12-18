@@ -3,6 +3,10 @@ class StandingsController < ApplicationController
   def index
     @users = User.includes([{:picks=>[:bowl_game,:team]}]).where(:paid=>true).order("users.score desc")
     
+    @user_teams = current_user.picks.collect{|p| p.team_id}
+    
+    @bowl_games = BowlGame.includes([:teams]).where({:pickem_id=>@pickem.id})
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
