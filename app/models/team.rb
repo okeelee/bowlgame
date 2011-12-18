@@ -4,6 +4,7 @@ class Team < ActiveRecord::Base
   has_many :bowl_games, :through => :bowl_game_teams
   has_many :teams
   has_many :picks
+  has_many :victories, :class_name => "BowlGame"
   
   def self.update_from_espn_conference conference
     teams_data = EspnXmlReader.conference_teams(conference.espn_id)

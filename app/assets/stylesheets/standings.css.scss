@@ -1,3 +1,50 @@
 // Place all the styles related to the standings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.standings .standing {
+  height:65px;
+  border-top:1px solid #DDD;
+}
+
+.standings .standing .score {
+  height:45px;
+  line-height:45px;
+  font-size:45px;
+  margin:5px;
+  padding:5px;
+  text-align:center;
+}
+
+.standings .standing .score.positive {
+  color:#57A957;
+}
+
+.standings .standing .score.negative {
+  color:#C43C35;
+}
+
+.standings .standing .user_info {
+  height:25px;
+  line-height:25px;
+} 
+
+.standings .standing .top_pick {
+  height:30px;
+  line-height:15px;
+  font-size:12px;
+  margin:0px 5px;
+  border:1px solid #CCC;
+  border-radius:4px;
+  padding:2px;
+  width:154px;
+}
+
+.standings .standing .top_pick .teamLogo {
+  margin:2px 2px 3px 2px;
+}
+
+.standings .standing .top_pick .team_name {
+  margin-left:30px;
+  width:118px;
+}

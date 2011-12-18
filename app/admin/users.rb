@@ -49,4 +49,13 @@ ActiveAdmin.register User do
     redirect_to(:back)
   end
   
+  action_item :only => :index do 
+    link_to('Update Standings', update_standings_admin_users_path) 
+  end
+  
+  collection_action :update_standings, :method => :get do
+    User.update_standings
+    redirect_to :action => :index, :notice => "Standings updated!"
+  end
+  
 end

@@ -2,14 +2,18 @@
   Standings
 .standings
   - @users.each do |user|
-    .row
-      .score.span3
+    .standing.row
+      .score.span2{:class=>"#{(user.score > 0) ? 'positive' : ((user.score < 0) ? 'negative' : '' )}"}
         = user.score
-      .span13
+      .span14
         .row
-          .user_info.span13
+          .user_info.span14
             = user.full_name
-          .top_picks.span13
+          .top_picks.span14
             - user.picks[0..4].each do |pick|
-              .med.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
+              .top_pick.left
+                .left.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
+                .team_name
+                  = "#{pick.team.try(:school_name)} #{pick.team.try(:name)}"
+                .clear
   
