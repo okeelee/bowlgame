@@ -11,7 +11,7 @@
             = link_to user.full_name, user_picks_path(user.username)
           .top_picks.span14
             - user.picks[0..4].each do |pick|
-              .top_pick.left
+              .top_pick.left{:class=>"#{((pick.team_id == pick.bowl_game.winner_id) ? "correct" : "incorrect" ) if pick.bowl_game.winner_id.present?}"}
                 .left.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
                 .team_name
                   = "#{pick.team.try(:school_name)} #{pick.team.try(:name)}"

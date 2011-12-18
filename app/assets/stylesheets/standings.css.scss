@@ -40,6 +40,16 @@
   width:148px;
 }
 
+.standings .standing .top_pick.correct {
+  background-color: #D1EED1;
+  border-color: #9CB29C;
+}
+
+.standings .standing .top_pick.incorrect {
+  background-color: #FDDFDE;
+  border-color: #BDA7A6;
+}
+
 .standings .standing .top_pick .teamLogo {
   margin:2px 2px 3px 2px;
 }
