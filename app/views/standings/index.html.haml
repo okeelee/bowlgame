@@ -1,8 +1,18 @@
 %h2
   Standings
+.outcome_prediction{:style=>"display:none;"}
+  - @bowl_games.each do |bowl_game|
+    .outcome
+      .bowl_name
+        = bowl_game.name
+      - bowl_game.teams.each do |team|
+        = radio_button_tag "bowl_outcome[#{bowl_game.id}]", team.id, ((bowl_game.winner_id.present?) ? bowl_game.winner_id==team.id : @user_teams.include?(team.id)), :disabled => bowl_game.winner_id.present?
+        = label_tag "bowl_outcome[#{bowl_game.id}][#{team.id}]", "#{team.try(:school_name)} #{team.try(:name)}"
+      .clear
+  .clear
 .standings
   - @users.each do |user|
-    .standing.row
+    .standing.row{"data-picks"=>user.picks.inject({}){|r,p| r[p.bowl_game_id]={:team_id=>p.team_id,:points=>p.points};r}.to_json}
       .score.span2{:class=>"#{(user.score > 0) ? 'positive' : ((user.score < 0) ? 'negative' : '' )}"}
         = user.score
       .span14
