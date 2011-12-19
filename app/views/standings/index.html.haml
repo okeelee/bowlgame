@@ -25,17 +25,19 @@
 .standings
   - @users.each do |user|
     .standing.row{"data-picks"=>user.picks.inject({}){|r,p| r[p.bowl_game_id]={:team_id=>p.team_id,:points=>p.points};r}.to_json}
-      .score.span2{:class=>"#{(user.score > 0) ? 'positive' : ((user.score < 0) ? 'negative' : '' )}"}
-        = user.score
-      .span14
+      .span16
         .row
-          .user_info.span14
-            = link_to user.full_name, user_picks_path(user.username)
-          .top_picks.span14
-            - user.picks[0..4].each do |pick|
-              .top_pick.left{:class=>"#{((pick.team_id == pick.bowl_game.winner_id) ? "correct" : "incorrect" ) if pick.bowl_game.winner_id.present?}"}
-                .left.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
-                .team_name
-                  = "#{pick.team.try(:school_name)} #{pick.team.try(:name)}"
-                .clear
-  
+          .span2
+            .score{:class=>"#{(user.score > 0) ? 'positive' : ((user.score < 0) ? 'negative' : '' )}"}
+              = user.score
+          .span14
+            .user_info
+              = link_to user.full_name, user_picks_path(user.username)
+            .top_picks
+              - user.picks[0..4].each do |pick|
+                .top_pick.left{:class=>"#{((pick.team_id == pick.bowl_game.winner_id) ? "correct" : "incorrect" ) if pick.bowl_game.winner_id.present?}"}
+                  .left.teamLogo{:class=>"espnId-#{pick.team.try(:espn_id) || 'blank'}"}
+                  .team_name
+                    = "#{pick.team.try(:school_name)}"
+                  .clear
+          .clear

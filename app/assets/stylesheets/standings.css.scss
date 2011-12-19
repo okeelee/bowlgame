@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.standings .standing {
+.standings {
+  margin-top:12px;
+}
+
+.standings .span16 {
   height:65px;
   border-top:1px solid #DDD;
 }
@@ -11,9 +15,8 @@
   height:45px;
   line-height:45px;
   font-size:45px;
-  margin:5px;
-  padding:5px;
-  text-align:center;
+  padding:10px 5px;
+  text-align:right;
 }
 
 .standings .standing .score.positive {
@@ -28,6 +31,10 @@
   height:25px;
   line-height:25px;
 } 
+
+.standings .standing .user_info a {
+  color: #404040;
+}
 
 .standings .standing .top_pick {
   height:30px;
