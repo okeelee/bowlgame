@@ -1,6 +1,6 @@
 $(function() {
   $(".outcome_actions .show_predict").click(function(){
-    $(".outcome_prediction").toggle();
+    $(".outcome_prediction").slideToggle();
   });
   
   $(".outcome_actions .generate_prediction").click(function(){
