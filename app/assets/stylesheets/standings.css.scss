@@ -58,3 +58,19 @@
   margin-left:30px;
   width:118px;
 }
+
+.outcome_prediction .outcome .bowl_name {
+  font-weight:bold;
+}
+
+.outcome_prediction .outcome .bowl_team label {
+  float:none;
+  font-size:11px;
+}
+
+.outcome_prediction .outcome .bowl_teams {
+  border-bottom: 1px solid #DDD;
+  border-top: 1px solid #DDD;
+  padding: 2px 0px;
+  margin: 2px 0px;
+}

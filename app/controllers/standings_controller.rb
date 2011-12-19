@@ -5,7 +5,7 @@ class StandingsController < ApplicationController
     
     @user_teams = current_user.picks.collect{|p| p.team_id}
     
-    @bowl_games = BowlGame.includes([:teams]).where({:pickem_id=>@pickem.id})
+    @bowl_games = BowlGame.includes([:teams]).where({:pickem_id=>@pickem.id}).order("game_time asc")
     
     respond_to do |format|
       format.html # index.html.erb
