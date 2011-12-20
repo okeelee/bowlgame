@@ -1,48 +1,14 @@
-:css
-  .pickStat  
-  {
-    margin-bottom: 12px;
-  }
-  .pickStat .stat_headers
-  {
-    padding: 4px;
-    background: #E9E9E9;
-    font-weight: bold;
-  }
-  .pickStat .team_row
-  {
-    padding: 4px 4px 2px;
-     border-bottom: 1px solid #ddd;
-  }
-  .pickStat .span1
-  {
-    text-align: center;
-  }
-  .pickStat .team_name_col div
-  {
-    float: left;
-  }  
-  .pickStat .teamLogo
-  {
-    margin-right: 6px;
-  }
-  .pickStat .team_name
-  {
-    padding-top: 2px;
-  }
 .page-header
   %h2
     Pick Stats
 .row
-  - (0..(@pick_stats.length/2 - 1)).each do |i|
-    - pick1 = @pick_stats[i * 2]
-    - pick2 = @pick_stats[i * 2 + 1]
+  - @pick_stats.each do |pick_stat|
     .span8.pickStat
       .row
         .span8.stat_headers
           .row
             .span4.bowl_name
-              = "#{pick1.bowl_name}"
+              = "#{pick_stat.bowl_game.name}"
             .span1
               Pks
             .span1
@@ -51,39 +17,19 @@
               Lo
             .span1
               Avg
-        .span8.team_row
-          .row
-            .span4.team_name_col
-              %div{:class => "teamLogo #{"espnId-#{pick1.team_id}"}"}
-              .team_name
-                = "#{pick1.team_name}"
-              .clear
-            .span1
-              = "#{pick1.count}"
-            .span1
-              = "#{pick1.max}"
-            .span1
-              = "#{pick1.min}"
-            .span1
-              - if !pick1.avg.nil?
-                = "#{sprintf('%d', pick1.avg)}"
-              - else
-                = "-"
-        .span8.team_row
-          .row
-            .span4.team_name_col
-              %div{:class => "teamLogo #{"espnId-#{pick2.team_id}"}"}
-              .team_name
-                = "#{pick2.team_name}"
-              .clear
-            .span1
-              = "#{pick2.count}"
-            .span1
-              = "#{pick2.max}"
-            .span1
-              = "#{pick2.min}"
-            .span1
-              - if !pick2.avg.nil?
-                = "#{sprintf('%d', pick2.avg)}"
-              - else
-                = "-"
+        - pick_stat.teams.each do |team|
+          .span8.team_row
+            .row
+              .span4.team_name_col
+                %div{:class => "teamLogo #{"espnId-#{team[:team].espn_id}"}"}
+                .team_name
+                  = "#{team[:team].school_name}"
+                .clear
+              .span1
+                = "#{team[:stats][:count]}"
+              .span1
+                = "#{team[:stats][:max]}"
+              .span1
+                = "#{team[:stats][:min]}"
+              .span1
+                = "#{(sprintf('%d', team[:stats][:avg]) rescue nil) || "-"}"

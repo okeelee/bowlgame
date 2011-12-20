@@ -1,0 +1,31 @@
+.pickStat  
+{
+  margin-bottom: 12px;
+}
+.pickStat .stat_headers
+{
+  padding: 4px;
+  background: #E9E9E9;
+  font-weight: bold;
+}
+.pickStat .team_row
+{
+  padding: 4px 4px 2px;
+   border-bottom: 1px solid #ddd;
+}
+.pickStat .span1
+{
+  text-align: center;
+}
+.pickStat .team_name_col div
+{
+  float: left;
+}  
+.pickStat .teamLogo
+{
+  margin-right: 6px;
+}
+.pickStat .team_name
+{
+  padding-top: 2px;
+}
