@@ -19,6 +19,8 @@
             - if user_signed_in?
               %li
                 = link_to 'Your Picks', user_picks_path(current_user.username)
+            %li
+              = link_to 'Pick Stats', pick_stats_path
             = render 'shared/registration_items'
             = render 'shared/login_items'
     #page.container

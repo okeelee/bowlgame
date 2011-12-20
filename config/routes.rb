@@ -10,6 +10,7 @@ Bowlgame::Application.routes.draw do
   match 'bowl_games/:id' => 'bowl_games#show'
   match 'standings' => 'standings#index'
   match 'standings/:username' => 'standings#show'
+  match 'pick_stats' => 'pick_stats#index'
   
   root :to => "home#index"
   
