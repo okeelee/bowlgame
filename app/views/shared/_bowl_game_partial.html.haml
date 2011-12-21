@@ -1,0 +1,34 @@
+.bowl_game.span-one-third
+  .bowl_game_inner
+    %h4
+      = "#{bowl_game.name}"
+      %small= "#{bowl_game.network}"
+    .row
+      .game_location.span2
+        = "#{bowl_game.city}, #{bowl_game.state}"
+      .game_time.span3
+        = bowl_game.game_time.strftime("%a, %b %d | %I:%M %p")
+    .team_rows
+      - for team in bowl_game.teams
+        .team_row.row
+          - pick_class = "team_pick"
+          - if bowl_game.picks.first.team_id == team.id
+            - unless bowl_game.winner.nil?
+              - if team.id == bowl_game.winner.id
+                .team_logo_col.span1.correct_pick
+                  %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+              - else
+                .team_logo_col.span1.wrong_pick
+                  %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+            - else
+              .team_logo_col.span1.team_pick
+                %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+          - else
+            .team_logo_col.span1
+              %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
+          .team_col.span3
+            .team_name= "#{team.school_name}"
+            .team_record
+              = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
+          .team_score_col.span1
+            / TODO: Add score from finished game

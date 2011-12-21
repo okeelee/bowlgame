@@ -20,7 +20,7 @@
 
 .bowl_game_inner
 {
-  margin: 0 6px;
+  margin: 0px;
 }
 
 .bowl_game .team_rows
@@ -55,6 +55,29 @@
 .bowl_game .team_logo_col, .bowl_game .team_score_col
 {
   width: 13%;
+}
+
+.bowl_game .team_logo_col 
+{
+  padding-left: 2px;
+}
+.bowl_game .team_pick, .bowl_game .correct_pick, .bowl_game .wrong_pick
+{
+  border-left-width: 6px;
+  border-left-style: solid;
+  margin-left: 14px;
+}
+.bowl_game .team_pick
+{
+  border-left-color: #404040;
+}
+.bowl_game .correct_pick
+{
+  border-left-color: #57A957;
+}
+.bowl_game .wrong_pick
+{
+  border-left-color: #C43C35;
 }
 
 .bowl_game .team_col

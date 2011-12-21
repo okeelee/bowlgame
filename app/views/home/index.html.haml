@@ -25,6 +25,9 @@
   .score.negative {
     color:#C43C35;
   }
+  .post_body {
+    margin-bottom: 12px;
+  }
   table td { padding: 5px }
 .container_row.row
   .page-header.span16
@@ -34,28 +37,8 @@
     .span16
       %h6
         There are no games today
-  - @games_today.each do |game|
-    .bowl_game.span-one-third
-      .bowl_game_inner
-        %h4
-          = "#{game.name}"
-          %small= "#{game.network}"
-        .row
-          .game_location.span2
-            = "#{game.city}, #{game.state}"
-          .game_time.span3
-            = game.game_time.strftime("%a, %b %d | %I:%M %p")
-        .team_rows
-          - for team in game.teams
-            .team_row.row
-              .team_logo_col.span1
-                %div{:class => "teamLogo #{"espnId-#{team.espn_id}"}"}
-              .team_col.span3
-                .team_name= "#{team.school_name}"
-                .team_record
-                  = "(#{team.wins}-#{team.losses}, #{team.conference_wins}-#{team.conference_losses} #{team.conference.short_name})"
-              .team_score_col.span1
-                / TODO: Add score from finished game
+  - @games_today.each do |bowl_game|
+    = render 'shared/bowl_game_partial', :bowl_game => bowl_game
 .container_row.row
   .span-two-thirds
     .page-header
@@ -73,7 +56,7 @@
         = post.body
   .span-one-third
     .page-header
-      %h2 
+      %h2
         Top 5
     %table.zebra-striped
       - @top5.each do |user|

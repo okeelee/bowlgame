@@ -5,7 +5,7 @@ class BowlGamesController < ApplicationController
     
     @bowl_games_hash = {}
     @dateRanges.each do |key, value|
-      temp_bowl_games = BowlGame.includes([{:teams=>:conference}]).where({:game_time=>value}).order('game_time')
+      temp_bowl_games = BowlGame.includes([{:teams=>:conference},{:picks=>:team}]).where({:game_time=>value}).where(:picks=>{:user_id=>current_user.id}).order('game_time')
       if !temp_bowl_games.nil?
         @bowl_games_hash[key] = temp_bowl_games
       end
