@@ -1,56 +1,32 @@
-:css
-  .loginControl
-  {
-    border: 1px solid #ddd;
-    padding: 6px 10px;
-    margin-top: 50px;
-  }
-  .loginControl .row
-  {
-    margin: 6px 0;
-  }
-  .loginControl .span2
-  {
-    width: 75px;
-    text-align: right;
-  }
-  .loginControl input
-  {
-    width: 150px;
-  }
-  .loginControl input[type="submit"]
-  {
-    float: right;
-    width: auto;
-  }
-  .loginControl input[type="checkbox"]
-  {
-    float: left;
-    margin-left: 6px;
-    width: auto;
-  }
-  .rememberMe
-  {
-    float: left;
-    font-size: 12px;
-    margin-top: 2px;
-  }
-  .welcome_message
-  {
-    padding: 4px;
-  }
-  .bowlLogo
-  {
-    float: left;
-  }
+.page-header
+  %h2
+    Bowl Game Pick'em 2012
+.bcsBowl
+  .bowlLogo.bowlId-nationalchampionship
+  .bowlLogo.bowlId-rosebowl
+  .bowlLogo.bowlId-sugarbowl
+  .bowlLogo.bowlId-fiestabowl
+  .bowlLogo.bowlId-orangebowl
   .floatFix
-  {
-    clear: both;
-  }
-%div{"data-role" => "page" }
-  %div{"data-role" => "header" }
-    %h1
-      Sign in
-  %div{"data-role" => "content"}
-    %p
-      hello mobile sign-in
+.loginControl
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %div
+      Email
+    %div
+      = f.email_field :email
+    %div
+      Password
+    %div
+      = f.password_field :password
+    %div
+      .right
+        %input{:type=>"submit",:value=>"Sign in","data-inline"=>"true"}
+      - if devise_mapping.rememberable?
+        .right
+          .rememberMe
+            Remember Me
+          = f.check_box :remember_me
+          .floatFix
+      .floatFix
+    %div
+      = render :partial => "devise/shared/links"

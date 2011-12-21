@@ -1,0 +1,115 @@
+.loginControl
+{
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  margin-top: 50px;
+}
+.loginControl .row
+{
+  margin: 6px 0;
+}
+.loginControl .span2
+{
+  width: 75px;
+  text-align: right;
+}
+.loginControl input
+{
+  width: 150px;
+}
+.loginControl input[type="submit"]
+{
+  float: right;
+  width: auto;
+}
+.loginControl input[type="checkbox"]
+{
+  float: left;
+  margin-left: 6px;
+  width: auto;
+}
+.rememberMe
+{
+  float: left;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.welcome_message
+{
+  padding: 4px;
+}
+.bowlLogo
+{
+  float: left;
+}
+.floatFix
+{
+  clear: both;
+}
+
+/*** MOBILE ***/
+.mobile_container
+{
+  width: 320px;
+  background-color: white;
+}
+
+.mobile_container .loginControl
+{
+  margin: 0 auto;
+  width: 280px;
+}
+
+.mobile_container .loginControl form
+{
+  margin: 10px 5px;
+}
+
+.mobile_container .loginControl input
+{
+  font-size: 18px;
+  line-height: 18px;
+  width: 260px;
+  margin: 4px 0 8px;
+}
+
+.mobile_container .loginControl .form-right
+{
+  text-align: right;
+}
+
+.mobile_container .loginControl input[type="checkbox"]
+{
+  float: left;
+  margin-left: 6px;
+  width: auto;
+}
+.mobile_container .rememberMe
+{
+  float: left;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.mobile_container .page-header
+{
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.mobile_container .bcsBowl
+{
+  margin: 10px auto;
+  width: 300px;
+}
+
+.mobile_container .ui-btn-hidden
+{
+  height: 18px;
+}
+.mobile_container .loginControl input[type="submit"]
+{
+  width: auto;
+  margin-top: 0;
+  margin-left: 12px;
+}

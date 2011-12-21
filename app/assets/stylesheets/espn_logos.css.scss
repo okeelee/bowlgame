@@ -10,6 +10,19 @@
 .bowlLogo.bowlId-rosebowl{ background-position: 0 -243px; } 
 .bowlLogo.bowlId-sugarbowl{ background-position: 0 -324px; }
 
+.mobile_container .bowlLogo {
+  width: 60px;
+  height: 60px;
+  background-image: url('bcsbowl_sprite.png');
+  background-size: 60px;
+}
+
+.mobile_container .bowlLogo.bowlId-fiestabowl{ background-position: 0 0; } 
+.mobile_container .bowlLogo.bowlId-nationalchampionship{ background-position: 0 -61px; } 
+.mobile_container .bowlLogo.bowlId-orangebowl{ background-position: 0 -122px; } 
+.mobile_container .bowlLogo.bowlId-rosebowl{ background-position: 0 -183px; } 
+.mobile_container .bowlLogo.bowlId-sugarbowl{ background-position: 0 -244px; }
+
 .teamLogo {
   width:25px;
   height:25px;

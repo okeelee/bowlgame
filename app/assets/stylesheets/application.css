@@ -9,6 +9,7 @@
  *= require bowl_games
  *= require standings
  *= require pick_stats
+ *= require home
 */
 
 body.body {
